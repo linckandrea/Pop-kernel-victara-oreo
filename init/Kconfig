@@ -948,11 +948,7 @@ config CC_OPTIMIZE_FOR_SIZE
 	  Enabling this option will pass "-Os" instead of "-O2" to gcc
 	  resulting in a smaller kernel.
 
-<<<<<<< HEAD
 	  If unsure, say Y.
-=======
-If unsure, say Y.
->>>>>>> 07e7684... restored -o2
 
 config SYSCTL
 	bool
