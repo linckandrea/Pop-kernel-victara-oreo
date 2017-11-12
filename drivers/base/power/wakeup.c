@@ -391,11 +391,29 @@ static void wakeup_source_activate(struct wakeup_source *ws)
 	if (!enable_wlan_rx_wake_ws && !strcmp(ws->name, "wlan_rx_wake"))
                 return;
 
+<<<<<<< HEAD
 	if (!enable_wlan_ctrl_wake_ws && !strcmp(ws->name, "wlan_ctrl_wake"))
                 return;
 
 	if (!enable_wlan_wake_ws && !strcmp(ws->name, "wlan_wake"))
                 return;
+=======
+	if (!enable_si_ws && !strcmp(ws->name, "sensor_ind")) {
+		pr_info("wakeup source sensor_ind activate skipped\n");
+		return;
+	}
+
+	if (!enable_msm_hsic_ws && !strcmp(ws->name, "msm_hsic_host")) {
+                pr_info("wakeup source msm_hsic_host activate skipped\n");
+                return;
+        }
+
+	/*
+	 * active wakeup source should bring the system
+	 * out of PM_SUSPEND_FREEZE state
+	 */
+	freeze_wake();
+>>>>>>> f970aa6... wakeup: add userspace knob to enable/disable msm_hsic_host wakelock
 
 	ws->active = true;
 	ws->active_count++;
