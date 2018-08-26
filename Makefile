@@ -378,6 +378,29 @@ KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
 		   -Werror-implicit-function-declaration \
 		   -Wno-format-security -Wno-sizeof-pointer-memaccess \
 		   -fno-delete-null-pointer-checks
+
+KBUILD_CFLAGS   += 	-Wno-incompatible-pointer-types \
+			-Wno-format-security \
+			-Wno-discarded-array-qualifiers \
+			-Wno-memset-transposed-args \
+			-Wno-bool-compare \
+			-Wno-logical-not-parentheses \
+			-Wno-switch-bool \
+			-Wno-array-bounds \
+			-Wno-misleading-indentation \
+			-Wno-format-truncation \
+			-Wno-bool-operation \
+			-Wno-duplicate-decl-specifier \
+			-Wno-memset-elt-size \
+			-Wno-parentheses \
+			-Wno-format-overflow \
+			-Wno-int-in-bool-context \
+			-Wno-switch-unreachable  
+
+KBUILD_CFLAGS	+= $(call cc-disable-warning,maybe-uninitialized,)
+KBUILD_CFLAGS	+= $(call cc-disable-warning,unused-const-variable,)
+KBUILD_CFLAGS	+= $(call cc-disable-warning,shift-overflow,)
+
 KBUILD_AFLAGS_KERNEL :=
 KBUILD_CFLAGS_KERNEL :=
 KBUILD_AFLAGS   := -D__ASSEMBLY__
